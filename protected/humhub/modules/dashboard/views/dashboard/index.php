@@ -35,4 +35,8 @@ use humhub\libs\Html;
         <?= FooterMenu::widget(['location' => FooterMenu::LOCATION_SIDEBAR]); ?>
     </div>
 </div>
+
+<div>
+    <p>test</p>
+</div>
 <?= Html::endContainer() ?>
