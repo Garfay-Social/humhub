@@ -19,7 +19,7 @@ use humhub\modules\user\widgets\AuthChoice;
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel"><?= Yii::t('UserModule.auth', '<strong>Join</strong> the network'); ?></h4>
+            <h4 class="modal-title" id="myModalLabel"><?= Yii::t('UserModule.auth', '<strong>Join</strong> Garfay Social'); ?></h4>
         </div>
         <div class="modal-body">
             <br/>
@@ -54,14 +54,14 @@ use humhub\modules\user\widgets\AuthChoice;
                         <?= AuthChoice::widget([]) ?>
                     <?php else: ?>
                         <?php if ($canRegister) : ?>
-                            <p><?= Yii::t('UserModule.auth', "If you're already a member, please login with your username/email and password."); ?></p>
+                            <p><?= Yii::t('UserModule.auth', "If you're already a member, please login with your email and password."); ?></p>
                         <?php else: ?>
-                            <p><?= Yii::t('UserModule.auth', "Please login with your username/email and password."); ?></p>
+                            <p><?= Yii::t('UserModule.auth', "Please login with your email and password."); ?></p>
                         <?php endif; ?>
                     <?php endif; ?>
 
                     <?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
-                    <?= $form->field($model, 'username')->textInput(['id' => 'login_username', 'placeholder' => Yii::t('UserModule.auth', 'username or email')]); ?>
+                    <?= $form->field($model, 'username')->textInput(['id' => 'login_username', 'placeholder' => Yii::t('UserModule.auth', 'email')]); ?>
                     <?= $form->field($model, 'password')->passwordInput(['id' => 'login_password', 'placeholder' => Yii::t('UserModule.auth', 'password')]); ?>
                     <?= $form->field($model, 'rememberMe')->checkbox(); ?>
                     <hr>
