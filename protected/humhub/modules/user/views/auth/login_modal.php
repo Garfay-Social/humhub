@@ -54,14 +54,14 @@ use humhub\modules\user\widgets\AuthChoice;
                         <?= AuthChoice::widget([]) ?>
                     <?php else: ?>
                         <?php if ($canRegister) : ?>
-                            <p><?= Yii::t('UserModule.auth', "If you're already a member, please login with your username/email and password."); ?></p>
+                            <p><?= Yii::t('UserModule.auth', "If you're already a member, please login with your email and password."); ?></p>
                         <?php else: ?>
-                            <p><?= Yii::t('UserModule.auth', "Please login with your username/email and password."); ?></p>
+                            <p><?= Yii::t('UserModule.auth', "Please login with your email and password."); ?></p>
                         <?php endif; ?>
                     <?php endif; ?>
 
                     <?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
-                    <?= $form->field($model, 'username')->textInput(['id' => 'login_username', 'placeholder' => Yii::t('UserModule.auth', 'username or email')]); ?>
+                    <?= $form->field($model, 'username')->textInput(['id' => 'login_username', 'placeholder' => Yii::t('UserModule.auth', 'email')]); ?>
                     <?= $form->field($model, 'password')->passwordInput(['id' => 'login_password', 'placeholder' => Yii::t('UserModule.auth', 'password')]); ?>
                     <?= $form->field($model, 'rememberMe')->checkbox(); ?>
                     <hr>
