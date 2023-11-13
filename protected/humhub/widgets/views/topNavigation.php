@@ -11,19 +11,19 @@ TopNavigationAsset::register($this);
 
 ?>
 
-<?php foreach ($entries as $entry) : ?>
-    <li class="top-menu-item <?php if ($entry->getIsActive()): ?>active<?php endif; ?>">
-        <?= Html::a($entry->getIcon() . '<br />' . $entry->getLabel(), $entry->getUrl(), $entry->getHtmlOptions()); ?>
-    </li>
-<?php endforeach; ?>
-
-<li id="top-menu-sub" class="dropdown" style="display:none;">
-    <a href="#" id="top-dropdown-menu" class="dropdown-toggle" data-toggle="dropdown">
-        <i class="fa fa-align-justify"></i><br>
+<li id="top-menu-sub" class="dropdown">
+    <a href="#" id="top-dropdown-menu" class="dropdown-toggle" data-toggle="dropdown" style="display:block;">
+        <i class="fa fa-bars"></i><br> <!-- Changed icon to 'bars' which is commonly used for hamburger menus -->
         <?= Yii::t('base', 'Menu'); ?>
         <b class="caret"></b>
     </a>
     <ul id="top-menu-sub-dropdown" class="dropdown-menu dropdown-menu-right">
-
+        <?php foreach ($entries as $entry) : ?>
+            <li class="dropdown-item <?= $entry->getIsActive() ? 'active' : ''; ?>">
+                <?= Html::a($entry->getIcon() . ' ' . $entry->getLabel(), $entry->getUrl(), $entry->getHtmlOptions()); ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</li>
     </ul>
 </li>

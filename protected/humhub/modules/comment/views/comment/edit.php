@@ -42,11 +42,11 @@ $contentModule = Yii::$app->getModule('content');
             $uploadButton = UploadButton::widget([
                 'id' => 'comment_upload_' . $comment->id,
                 'model' => $comment,
-                'tooltip' => Yii::t('ContentModule.base', 'Attach Files'),
+                
                 'dropZone' => '#comment_' . $comment->id,
                 'preview' => '#comment_upload_preview_' . $comment->id,
                 'progress' => '#comment_upload_progress_' . $comment->id,
-                'max' => $contentModule->maxAttachedFiles,
+                
                 'cssButtonClass' => 'btn-sm btn-info',
             ]);
             echo FileHandlerButtonDropdown::widget([
