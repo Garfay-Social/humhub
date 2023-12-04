@@ -17,7 +17,7 @@ TopNavigationAsset::register($this);
         <?= Yii::t('base', 'Menu'); ?>
         <b class="caret"></b>
     </a>
-    <ul id="top-menu-sub-dropdown" class="dropdown-menu dropdown-menu-right">
+    <ul id="top-menu-sub-dropdown" class="dropdown-menu dropdown-menu-left">
         <?php foreach ($entries as $entry) : ?>
             <li class="dropdown-item <?= $entry->getIsActive() ? 'active' : ''; ?>">
                 <?= Html::a($entry->getIcon() . ' ' . $entry->getLabel(), $entry->getUrl(), $entry->getHtmlOptions()); ?>

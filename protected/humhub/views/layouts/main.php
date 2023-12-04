@@ -3,6 +3,7 @@
 /* @var $content string */
 
 \humhub\assets\AppAsset::register($this);
+humhub\modules\stream\assets\StreamAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,7 +25,11 @@
                     <?= \humhub\widgets\SiteLogo::widget(); ?>
                 </div>
 
-                <div class="topbar-actions pull-right">
+                <ul class="nav" id="search-menu-nav">
+                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
+                </ul>
+
+                <div class="topbar-actions">
                     <?= \humhub\modules\user\widgets\AccountTopMenu::widget(); ?>
                 </div>
 
@@ -39,16 +44,13 @@
         <div id="topbar-second" class="topbar">
             <div class="container">
                 <ul class="nav" id="top-menu-nav">
-                    <!-- load space chooser widget -->
-                    <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
-
                     <!-- load navigation from widget -->
                     <?= \humhub\widgets\TopMenu::widget(); ?>
+
+                    <!-- load space chooser widget -->
+                    <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
                 </ul>
 
-                <ul class="nav pull-right" id="search-menu-nav">
-                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
-                </ul>
             </div>
         </div>
         <!-- end: second top navigation bar -->
