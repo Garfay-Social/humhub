@@ -1369,7 +1369,7 @@ ul.tab-menu-settings li.active > a {
     }
 
         .nav-pills .dropdown-menu li a, .nav-tabs .dropdown-menu li a, .account .dropdown-menu li a {
-            color: white;
+            color: black;
             font-weight: 400;
             font-size: 13px;
             padding: 4px 15px
@@ -1657,7 +1657,7 @@ ul.tab-menu-settings li.active > a {
 }
 
     .btn-primary:hover, .btn-primary:focus {
-        background: #1575fef;
+        background: #1575fe;
         text-decoration: none
     }
 
