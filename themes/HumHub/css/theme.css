@@ -6245,9 +6245,37 @@ ul.tag_input {
     margin: 3px 4px 0 0
 }
 
-    .userInput i, .spaceInput i {
-        padding: 0 6px;
-        font-size: 14px;
-        cursor: pointer;
-        line-height: 8px
-    }
+.userInput i, .spaceInput i {
+    padding: 0 6px;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 8px
+}
+
+.s2_streamContent{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center;
+    gap: 1em
+}
+    
+.container{
+    width:95%;
+}
+
+.layout-sidebar-container{
+    display:none
+}
+
+.col-md-8{
+    width:100%
+}
+
+.wall-entry{
+    flex-grow: 1;
+    flex-basis: 30%;
+}
+
+.btn_container > div:nth-child(2) > span:nth-child(1){
+    display: none; 
+}
