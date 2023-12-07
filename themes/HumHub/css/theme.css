@@ -6253,8 +6253,8 @@ ul.tag_input {
 }
 
 .s2_streamContent{
-    display: flex !important;
-    flex-wrap: wrap !important;
+    display: flex ;
+    flex-wrap: wrap ;
     align-items: center;
     gap: 1em
 }
