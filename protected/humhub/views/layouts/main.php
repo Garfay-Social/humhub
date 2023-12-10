@@ -26,7 +26,8 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                 </div>
 
                 <ul class="nav" id="search-menu-nav">
-                    <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
+                    <input type="text" id="topbar-search" class="form-control" autocomplete="off"
+                                placeholder="Search"?>
                 </ul>
 
                 <div class="topbar-actions">
