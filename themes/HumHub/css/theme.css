@@ -497,7 +497,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
 
     #topbar-first .btn-enter {
         background-color: #2e7ff3;
-        margin: 6px 0
+        margin-left: 600px
     }
 
         #topbar-first .btn-enter:hover {
