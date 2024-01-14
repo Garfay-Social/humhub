@@ -1,0 +1,9 @@
+{
+    "id": "review",
+    "name": "Review",
+    "description": "Review Core",
+    "keywords": [
+        "review"
+    ],
+    "version": "1.0"
+}
