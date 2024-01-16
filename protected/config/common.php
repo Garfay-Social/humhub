@@ -6,4 +6,15 @@
  * @see http://docs.humhub.org/dev-environment.html
  */
 return [
+    'components' => [
+        'mailer' => [
+        'transport' => [
+                'host' => 'smtp.gmail.com',
+                'port' => 25,
+                'username' => 'garfayinc@gmail.com',
+                'password' => 'gnyykmfzytzzzqhf',
+                'scheme' => 'smtp',
+            ]
+        ]
+    ]
 ];
