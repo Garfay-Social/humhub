@@ -6267,6 +6267,10 @@ ul.tag_input {
     display:none
 }
 
+.col-md-7{
+    width:70%
+}
+
 .col-md-8{
     width:100%
 }
