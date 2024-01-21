@@ -14,7 +14,7 @@ use humhub\libs\Html;
 $animation = $model->hasErrors() ? 'shake' : 'fadeIn';
 ?>
 
-<?php ModalDialog::begin(['header' => Yii::t('SpaceModule.manage', '<strong>Create</strong> Space'), 'size' => 'small']) ?>
+<?php ModalDialog::begin(['header' => Yii::t('SpaceModule.manage', '<strong>Create</strong> Business'), 'size' => 'small']) ?>
     <?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
         <div class="modal-body">
 
