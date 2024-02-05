@@ -8,15 +8,15 @@ humhub\modules\stream\assets\StreamAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-    <head>
-        <title><?= strip_tags($this->pageTitle); ?></title>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <?php $this->head() ?>
-        <?= $this->render('head'); ?>
-    </head>
-    <body>
-        <?php $this->beginBody() ?>
+<head>
+    <title><?= strip_tags($this->pageTitle); ?></title>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <?php $this->head() ?>
+    <?= $this->render('head'); ?>
+</head>
+<body>
+    <?php $this->beginBody() ?>
 
         <!-- start: first top navigation bar -->
         <div id="topbar-first" class="topbar">
@@ -24,6 +24,9 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                 <div class="topbar-brand hidden-xs">
                     <?= \humhub\widgets\SiteLogo::widget(); ?>
                 </div>
+
+                <!-- Include the search bar here -->
+                <?= $this->render('@humhub/modules/search/views/search/_searchBar', ['model' => new \humhub\modules\search\models\forms\SearchForm()]); ?>
 
                 <ul class="nav" id="search-menu-nav">
                     <input type="text" id="topbar-search" class="form-control" autocomplete="off"
@@ -39,10 +42,9 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                 </div>
             </div>
         </div>
-        <!-- end: first top navigation bar -->
 
-        <!-- start: second top navigation bar -->
-        <div id="topbar-second" class="topbar">
+         <!-- start: second top navigation bar -->
+         <div id="topbar-second" class="topbar">
             <div class="container">
                 <ul class="nav" id="top-menu-nav">
                     <!-- load navigation from widget -->
