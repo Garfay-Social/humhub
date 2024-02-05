@@ -113,7 +113,7 @@ class Login extends Model
             );
         }
 
-        $this->addError('password', Yii::t('UserModule.auth', 'Email or Password incorrect.'));
+        $this->addError('password', Yii::t('UserModule.auth', 'User or Password incorrect.'));
 
         // Delete current password value
         $this->password = '';
