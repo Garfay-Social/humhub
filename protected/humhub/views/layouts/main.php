@@ -27,18 +27,11 @@ humhub\modules\stream\assets\StreamAsset::register($this);
 
                 <!-- Include the search bar here -->
                 <?= $this->render('@humhub/modules/search/views/search/_searchBar', ['model' => new \humhub\modules\search\models\forms\SearchForm()]); ?>
-
+                <!--
                 <ul class="nav" id="search-menu-nav">
                     <?= \humhub\widgets\TopMenuRightStack::widget(); ?>
                 </ul>
-
-                <div class="topbar-actions">
-                    <?= \humhub\modules\user\widgets\AccountTopMenu::widget(); ?>
-                </div>
-
-                <div class="notifications pull-right">
-                    <?= \humhub\widgets\NotificationArea::widget(); ?>
-                </div>
+                -->
             </div>
         </div>
 
@@ -51,6 +44,12 @@ humhub\modules\stream\assets\StreamAsset::register($this);
 
                     <!-- load space chooser widget -->
                     <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
+
+                    <!-- load account widget -->
+                    <?= \humhub\modules\user\widgets\AccountTopMenu::widget(); ?>
+
+                    <!-- load Notifications widget -->
+                    <?= \humhub\widgets\NotificationArea::widget(); ?>
                 </ul>
 
             </div>
