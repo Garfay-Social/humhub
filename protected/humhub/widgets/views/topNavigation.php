@@ -19,9 +19,11 @@ TopNavigationAsset::register($this);
     </a>
     <ul id="top-menu-sub-dropdown" class="dropdown-menu dropdown-menu-left">
         <?php foreach ($entries as $entry) : ?>
-            <li class="dropdown-item <?= $entry->getIsActive() ? 'active' : ''; ?>">
-                <?= Html::a($entry->getIcon() . ' ' . $entry->getLabel(), $entry->getUrl(), $entry->getHtmlOptions()); ?>
-            </li>
+            <?php if ($entry->getLabel() !== "Spaces") : ?>
+                <li class="dropdown-item <?= $entry->getIsActive() ? 'active' : ''; ?>">
+                    <?= Html::a($entry->getIcon() . ' ' . $entry->getLabel(), $entry->getUrl(), $entry->getHtmlOptions()); ?>
+                </li>
+            <?php endif; ?>
         <?php endforeach; ?>
     </ul>
 </li>
