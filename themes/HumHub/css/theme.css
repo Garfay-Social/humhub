@@ -318,7 +318,8 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
 
     #topbar-first a.navbar-brand {
         height: 50px;
-        padding: 5px
+        padding: 5px;
+        margin-right: 300px;
     }
 
         #topbar-first a.navbar-brand img#img-logo {
@@ -334,8 +335,9 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
     }
 
     #topbar-first .nav > .account {
+        position: absolute;
         height: 50px;
-        margin-left: 20px
+        right: 10%;
     }
 
         #topbar-first .nav > .account img {
@@ -345,7 +347,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
         #topbar-first .nav > .account .dropdown-toggle {
             padding: 10px 5px 8px;
             line-height: 1.1em;
-            text-align: left
+            text-align: left;
         }
 
             #topbar-first .nav > .account .dropdown-toggle span {
@@ -363,7 +365,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
     }
 
     #topbar-first .notifications {
-        position: absolute;
+        position: relative;
         left: 0;
         right: 0;
         text-align: center;
@@ -424,8 +426,8 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
         }
 
         #topbar-first .notifications .dropdown-menu {
-            width: 350px;
-            margin-left: -148px
+            width: 205px;
+            margin-left: -108px
         }
 
             #topbar-first .notifications .dropdown-menu ul.media-list {
@@ -486,7 +488,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
     }
 
     #topbar-first .caret {
-        border-top-color: #fff
+        border-top-color: black
     }
 
     #topbar-first .btn-group > a {
@@ -495,7 +497,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
 
     #topbar-first .btn-enter {
         background-color: #2e7ff3;
-        margin: 6px 0
+        margin-left: 600px
     }
 
         #topbar-first .btn-enter:hover {
@@ -532,7 +534,7 @@ span.likeLinkContainer .like.disabled, span.likeLinkContainer .unlike.disabled {
     }
 
         #topbar-first .account .user-title span {
-            color: #d7d7d7
+            color: black
         }
 
     #topbar-first .dropdown.account > a, #topbar-first .dropdown.account.open > a, #topbar-first .dropdown.account > a:hover, #topbar-first .dropdown.account.open > a:hover {
@@ -1657,7 +1659,7 @@ ul.tab-menu-settings li.active > a {
 }
 
     .btn-primary:hover, .btn-primary:focus {
-        background: #1575fe;
+        background: #1575fef;
         text-decoration: none
     }
 
