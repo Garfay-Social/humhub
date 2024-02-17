@@ -19,18 +19,6 @@ use humhub\modules\ui\form\widgets\ActiveForm;
     <span class="star" data-value="5">&#9733;</span>
 </div>
 
-<style>
-    .star {
-        cursor: pointer; 
-        color: #ccc;
-    }
-
-    .star.selected { 
-        color: gold;
-    }
-
-</style>
-
 <?= $form->field($post, 'message')->widget(RichTextField::class, [
     'id' => 'contentForm_message',
     'form' => $form,
@@ -63,22 +51,38 @@ use humhub\modules\ui\form\widgets\ActiveForm;
 
         function starClickHandler() {
             const value = parseInt(this.getAttribute('data-value'));
-            localStorage.setItem('starRating', value);
-            applyStoredRating(); // Update the display immediately after storing the new rating
+            const storedRating = localStorage.getItem('starRating');
+
+            // If the clicked star is already selected, reset the rating to 0 (silver)
+            if (storedRating && parseInt(storedRating) === value) {
+                localStorage.removeItem('starRating');
+            } else {
+                localStorage.setItem('starRating', value);
+            }
+
+            // Update the display for all stars
+            applyStoredRating();
         }
 
         function applyStoredRating() {
             const storedRating = localStorage.getItem('starRating');
             let stars = document.querySelectorAll('.star');
-            if (storedRating) {
-                stars.forEach((star, i) => {
-                    if (i < storedRating) {
-                        star.classList.add('selected');
-                    } else {
-                        star.classList.remove('selected');
-                    }
-                });
-            }
+
+            // Convert storedRating to a number, or default to 0 if null or invalid
+            const rating = parseInt(storedRating) || 0;
+
+            // Loop through all stars
+            stars.forEach((star, i) => {
+                // Check if the current star should be selected (up to the stored rating)
+                const shouldBeSelected = i < rating;
+
+                // Toggle the selected class based on the shouldBeSelected condition
+                if (shouldBeSelected) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
         }
 
         function initializeStarRating() {
