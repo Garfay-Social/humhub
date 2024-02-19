@@ -1,0 +1,3 @@
+[submodule "protected/modules/review"]
+	path = protected/modules/review
+	url = git@github.com:Garfay-Social/review.git
