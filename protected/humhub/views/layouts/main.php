@@ -25,11 +25,6 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                     <?= \humhub\widgets\SiteLogo::widget(); ?>
                 </div>
 
-                <ul class="nav" id="search-menu-nav">
-                    <input type="text" id="topbar-search" class="form-control" autocomplete="off"
-                                placeholder="Search"?>
-                </ul>
-
                 <div class="topbar-actions">
                     <?= \humhub\modules\user\widgets\AccountTopMenu::widget(); ?>
                 </div>
@@ -52,6 +47,9 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                     <?= \humhub\modules\space\widgets\Chooser::widget(); ?>
                 </ul>
 
+            <!-- Include the search bar here -->
+            <?= $this->render('@humhub/modules/search/views/search/_searchBar', ['model' => new \humhub\modules\search\models\forms\SearchForm()]); ?>
+                
             </div>
         </div>
         <!-- end: second top navigation bar -->
