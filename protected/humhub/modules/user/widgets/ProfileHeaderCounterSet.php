@@ -76,7 +76,7 @@ class ProfileHeaderCounterSet extends CounterSet
             ->count();
 
         $this->counters[] = new CounterSetItem([
-            'label' => Yii::t('UserModule.profile', 'Spaces'),
+            'label' => Yii::t('UserModule.profile', 'Business Review Pages'),
             'value' => $spaceMembershipCount,
             'url' => Yii::$app->user->isGuest ? null : '#',
             'linkOptions' => Yii::$app->user->isGuest ? [] : [
