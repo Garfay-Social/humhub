@@ -76,6 +76,7 @@ class PostController extends ContentContainerController
         }
 
         $post->load(Yii::$app->request->post(), 'Post');
+        $post->starRating = Yii::$app->request->post('starRating');
 
         return Post::getDb()->transaction(function ($db) use ($post) {
             return WallCreateContentForm::create($post, $this->contentContainer);
@@ -96,6 +97,8 @@ class PostController extends ContentContainerController
         }
 
         if ($model->load(Yii::$app->request->post())) {
+            // Load starRating from the form
+            $post->starRating = Yii::$app->request->post('starRating');
             // Reload record to get populated updated_at field
             if ($model->save()) {
                 $post = Post::findOne(['id' => $id]);

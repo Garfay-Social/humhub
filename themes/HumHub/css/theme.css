@@ -6285,7 +6285,7 @@ ul.tag_input {
 .star {
     cursor: pointer; 
     color: #ccc;
-    font-size: 24px;
+    font-size: 120px;
 }
 
 .star.selected { 

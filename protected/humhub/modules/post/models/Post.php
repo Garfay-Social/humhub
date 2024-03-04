@@ -40,6 +40,8 @@ class Post extends ContentActiveRecord implements Searchable
      */
     public $moduleId = 'post';
 
+    public $starRating;
+
     /**
      * @inheritdoc
      */
@@ -71,7 +73,8 @@ class Post extends ContentActiveRecord implements Searchable
         return [
             [['message'], 'required', 'except' => self::SCENARIO_AJAX_VALIDATION],
             [['message'], 'string'],
-            [['url'], 'string', 'max' => 255]
+            [['url'], 'string', 'max' => 255],
+            [['starRating'], 'integer', 'min' => 0, 'max' => 5],
         ];
     }
 
@@ -84,6 +87,10 @@ class Post extends ContentActiveRecord implements Searchable
         if (preg_match('/http(.*?)(\s|$)/i', $this->message)) {
             // Set Filter Flag
             $this->url = 1;
+        }
+
+        if ($this->starRating !== null) {
+            $this->setAttribute('star_rating', $this->starRating);
         }
 
         return parent::beforeSave($insert);
