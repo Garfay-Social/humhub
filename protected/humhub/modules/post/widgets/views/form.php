@@ -65,8 +65,14 @@ use humhub\modules\ui\form\widgets\ActiveForm;
         }
 
         function applyStoredRating() {
+
+            
+            
             const storedRating = localStorage.getItem('starRating');
             let stars = document.querySelectorAll('.star');
+
+            console.log('stored Rating is:');
+            console.log(storedRating);
 
             // Convert storedRating to a number, or default to 0 if null or invalid
             const rating = parseInt(storedRating) || 0;
@@ -83,6 +89,8 @@ use humhub\modules\ui\form\widgets\ActiveForm;
                     star.classList.remove('selected');
                 }
             });
+
+   
         }
 
         function initializeStarRating() {
