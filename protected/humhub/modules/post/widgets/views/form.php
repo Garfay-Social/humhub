@@ -77,6 +77,8 @@ use humhub\modules\ui\form\widgets\ActiveForm;
             // Convert storedRating to a number, or default to 0 if null or invalid
             const rating = parseInt(storedRating) || 0;
 
+            console.log(storedRating);
+
             // Loop through all stars
             stars.forEach((star, i) => {
                 // Check if the current star should be selected (up to the stored rating)
