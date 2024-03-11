@@ -76,8 +76,7 @@ class PostController extends ContentContainerController
         }
 
         $post->load(Yii::$app->request->post(), 'Post');
-        $starRating = Yii::$app->request->post('starRating');
-        $post->starRating = $starRating;
+
 
         return Post::getDb()->transaction(function ($db) use ($post) {
             return WallCreateContentForm::create($post, $this->contentContainer);
