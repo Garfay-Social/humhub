@@ -49,6 +49,8 @@ class WallEntry extends WallStreamEntryWidget
         $module = Yii::$app->getModule('post');
 
         $post = $this->model;
+        $message = $post->message;
+        $test = $post->abc;
         $starRating = $post->starRating;
 
 
