@@ -1,5 +1,8 @@
 <?php
 
+
+$starRating = $post->starRating;
+echo "Star Rating: " . $starRating;
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2018 HumHub GmbH & Co. KG
@@ -48,9 +51,9 @@ class WallEntry extends WallStreamEntryWidget
         /** @var Module $module */
         $module = Yii::$app->getModule('post');
 
-        $post = $this->model;
-        $message = $post->message;
-        $starRating = $post->starRating;
+        // $post = $this->model;
+        // $message = $post->message;
+        // $starRating = $post->starRating;
 
 
         return $this->render('wallEntry', [
