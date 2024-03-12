@@ -50,7 +50,6 @@ class WallEntry extends WallStreamEntryWidget
 
         $post = $this->model;
         $message = $post->message;
-        $test = $post->abc;
         $starRating = $post->starRating;
 
 
