@@ -47,14 +47,13 @@ class WallEntry extends WallStreamEntryWidget
     {
         /** @var Module $module */
         $module = Yii::$app->getModule('post');
-
-        $message = $post->message;
     
 
         return $this->render('wallEntry', [
             'post' => $this->model,
             'justEdited' => $this->renderOptions->isJustEdited(), // compatibility for themed legacy views
             'renderOptions' => $this->renderOptions,
+            '
             'enableDynamicFontSize' => $module->enableDynamicFontSize
         ]);
     }
