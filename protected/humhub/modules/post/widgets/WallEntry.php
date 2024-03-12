@@ -19,7 +19,7 @@ use Yii
 class WallEntry extends WallStreamEntryWidget
 {
 
-    $post = $this->model;
+
 
     /**
      * Route to create a content
