@@ -1,5 +1,4 @@
 <?php
-$post = $this->model;
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2018 HumHub GmbH & Co. KG
@@ -19,6 +18,9 @@ use Yii
  */
 class WallEntry extends WallStreamEntryWidget
 {
+
+    $post = $this->model;
+
     /**
      * Route to create a content
      *
