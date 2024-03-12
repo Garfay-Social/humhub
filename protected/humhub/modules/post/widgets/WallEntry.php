@@ -1,5 +1,5 @@
 <?php
-
+$post = $this->model;
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2018 HumHub GmbH & Co. KG
@@ -53,10 +53,10 @@ class WallEntry extends WallStreamEntryWidget
         // $message = $post->message;
         // $starRating = $post->starRating;
 
-        $starRating = $post->starRating;
-        if ($starRating !== null) {
-            echo "Star Rating: " . $starRating;
-        }
+        // $starRating = $post->starRating;
+        // if ($starRating !== null) {
+        //     echo "Star Rating: " . $starRating;
+        // }
 
         return $this->render('wallEntry', [
             'post' => $this->model,
