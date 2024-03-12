@@ -27,6 +27,9 @@ use yii\bootstrap\ActiveForm;
     <?php $form = ActiveForm::begin(['id' => 'post-edit-form_' . $model->post->id]); ?>
 
         <div class="post-richtext-input-group">
+
+        <?= $form->field($model->post, 'starRating')->hiddenInput(['id' => 'starRatingInput'])->label(false) ?>
+
             <?= $form->field($model->post, 'message')->widget(RichTextField::class, [
                 'id' => 'post_input_'. $model->post->id,
                 'layout' => RichTextField::LAYOUT_INLINE,
@@ -88,6 +91,8 @@ use yii\bootstrap\ActiveForm;
         function starClickHandler() {
             const value = parseInt(this.getAttribute('data-value'));
             const storedRating = localStorage.getItem('starRating');
+
+            document.getElementById('starRatingInput').value = value;
 
             // If the clicked star is already selected, reset the rating to 0 (silver)
             if (storedRating && parseInt(storedRating) === value) {

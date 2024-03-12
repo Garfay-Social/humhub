@@ -19,6 +19,8 @@ use humhub\modules\ui\form\widgets\ActiveForm;
     <span class="star" data-value="5">&#9733;</span>
 </div>
 
+<?= $form->field($post, 'starRating')->hiddenInput(['id' => 'starRatingInput'])->label(false) ?>
+
 <?= $form->field($post, 'message')->widget(RichTextField::class, [
     'id' => 'contentForm_message',
     'form' => $form,
@@ -52,6 +54,8 @@ use humhub\modules\ui\form\widgets\ActiveForm;
         function starClickHandler() {
             const value = parseInt(this.getAttribute('data-value'));
             const storedRating = localStorage.getItem('starRating');
+
+            document.getElementById('starRatingInput').value = value;
 
             // If the clicked star is already selected, reset the rating to 0 (silver)
             if (storedRating && parseInt(storedRating) === value) {

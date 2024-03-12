@@ -15,5 +15,14 @@ $isDetailView = $renderOptions->isViewContext(WallStreamEntryOptions::VIEW_CONTE
      data-dynamic-font-size="<?= intval($enableDynamicFontSize) ?>" data-ui-init id="post-content-<?= $post->id ?>">
     <div data-ui-markdown <?php if (!$isDetailView) : ?>data-ui-show-more<?php endif; ?>>
         <?= RichText::output($post->message, ['record' => $post]) ?>
+
+        <?php
+        $starRating = $post->starRating;
+        if ($starRating !== null) {
+            echo "Star Rating: " . $starRating;
+        } else {
+            echo "Star Rating: N/A";
+        }
+        ?>
     </div>
 </div>
