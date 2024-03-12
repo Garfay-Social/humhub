@@ -2,7 +2,11 @@
 
 
 $starRating = $post->starRating;
-echo "Star Rating: " . $starRating;
+if ($starRating !== null) {
+    echo "Star Rating: " . $starRating;
+}
+
+
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2018 HumHub GmbH & Co. KG
