@@ -1,12 +1,5 @@
 <?php
 
-
-$starRating = $post->starRating;
-if ($starRating !== null) {
-    echo "Star Rating: " . $starRating;
-}
-
-
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2018 HumHub GmbH & Co. KG
@@ -19,6 +12,14 @@ use humhub\modules\content\widgets\stream\WallStreamEntryWidget;
 use humhub\modules\post\models\Post;
 use humhub\modules\post\Module;
 use Yii;
+
+
+
+$starRating = $post->starRating;
+if ($starRating !== null) {
+    echo "Star Rating: " . $starRating;
+}
+
 
 /**
  * @inheritdoc
