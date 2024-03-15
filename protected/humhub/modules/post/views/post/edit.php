@@ -92,14 +92,12 @@ use yii\bootstrap\ActiveForm;
             const value = parseInt(this.getAttribute('data-value'));
             const storedRating = localStorage.getItem('starRating');
 
-            document.getElementById('starRatingInput').value = value;
+            // Toggle the rating between 0 and the clicked value
+            const newRating = storedRating && parseInt(storedRating) === value ? 0 : value;
+            document.getElementById('starRatingInput').value = newRating;
 
-            // If the clicked star is already selected, reset the rating to 0 (silver)
-            if (storedRating && parseInt(storedRating) === value) {
-                localStorage.removeItem('starRating');
-            } else {
-                localStorage.setItem('starRating', value);
-            }
+            // Store the new rating in local storage
+            localStorage.setItem('starRating', newRating);
 
             // Update the display for all stars
             applyStoredRating();
@@ -118,11 +116,7 @@ use yii\bootstrap\ActiveForm;
                 const shouldBeSelected = i < rating;
 
                 // Toggle the selected class based on the shouldBeSelected condition
-                if (shouldBeSelected) {
-                    star.classList.add('selected');
-                } else {
-                    star.classList.remove('selected');
-                }
+                star.classList.toggle('selected', shouldBeSelected);
             });
         }
 
