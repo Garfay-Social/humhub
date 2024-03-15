@@ -16,12 +16,19 @@ $isDetailView = $renderOptions->isViewContext(WallStreamEntryOptions::VIEW_CONTE
     <div data-ui-markdown <?php if (!$isDetailView) : ?>data-ui-show-more<?php endif; ?>>
         <?= RichText::output($post->message, ['record' => $post]) ?>
 
-        <?php
-        $starRating = $post->starRating;
-        if ($starRating !== null) {
-            echo "Star Rating: " . $starRating;
-        } else {
-            echo "Star Rating: N/A";
+        <?php 
+        // Retrieve star rating from DB and display on user post
+        $starRating = Post::find()
+        ->select('starRating')
+        ->where(['id' => $post->id])
+        ->scalar();
+
+        for ($i = 1; $i <= 5; $i++) {
+            // Determine highlighted stars
+            $starClass = $i <= $starRating ? 'selected' : '';
+            
+            // Display on post
+            echo '<span class="star ' . $starClass . ' posted" data-value="' . $i . '">&#9733;</span>';
         }
         ?>
     </div>
