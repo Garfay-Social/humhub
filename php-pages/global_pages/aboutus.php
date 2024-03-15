@@ -3,10 +3,16 @@
 <style>
 h2 {
     font-size: xx-large;
+    text-align: center;
 }
 
 h3{
     font-size: large;
+}
+
+.row{
+    width: 70%;
+    margin: auto;
 }
 </style>
 
@@ -67,21 +73,17 @@ if(isset($_POST['submit'])) {
 
 
 	$mail = new PHPMailer(true);
+    
 
 	try {
 		// config smtp
 		$mail->isSMTP();
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;  
-		$mail->Username = 'vincario098@gmail.com';  //SMTP username
-		$mail->Password = 'zqmgssnfhaodeecg';  // SMPTP password
+		$mail->Username = 'vincario098@gmail.com';  //SMTP username, change to garfay email
+		$mail->Password = 'zqmgssnfhaodeecg';  // SMPTP password, change to garfay password
 		$mail->Port = 587;  // Port
 
-		// user email and name
-		$mail->setFrom($email, $name);
-
-		// address sent to
-		$mail->addAddress('vinsondinh123@gmail.com', 'Recipient Name');
 
 		// Content
 		$mail->isHTML(true);
@@ -89,14 +91,28 @@ if(isset($_POST['submit'])) {
 		$mail->Body = $message;
 		$mail->AltBody = $message;
 
+		//to garfay email
+		// user email and name
+		$mail->setFrom($email, $name);
+
+		// address sent to, change this to garfay on server
+		$mail->addAddress('vinsondinh123@gmail.com', 'Recipient Name');
+
 		// Send 
 		$mail->send();
-		
 
-		echo "<div class='notification' id='notification'>Email sent successfully</div>";
+		
+		$mail->clearAllRecipients();
+
+		//send to sender
+		$mail->addAddress($email, 'Recipient Name');
+		$mail->send();
+		
+		
 	} catch (Exception $e) {
-		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+		echo "Message could not be sent. {$mail->ErrorInfo}";
 	}
+
 }
 
 ?> 
@@ -108,22 +124,17 @@ if(isset($_POST['submit'])) {
     <style>
        
         .notification {
-            display: none;
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
+            width: 30%;
+            margin: auto; 
             background-color: white;
             padding: 45px;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            font-size: 40px;
+            border-radius: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            text-align: center;
+            font-size: 35px;
         }
 
-        .notification.error {
-            background-color: #ffcccc; 
-        }
 
     </style>
 </head>
@@ -133,6 +144,7 @@ if(isset($_POST['submit'])) {
     
     window.onload = function() {
         var notification = document.getElementById('notification');
+
         if (notification) {
             notification.style.display = 'block';
             setTimeout(function() {
