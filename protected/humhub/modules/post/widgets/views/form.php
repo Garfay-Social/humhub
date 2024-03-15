@@ -19,6 +19,8 @@ use humhub\modules\ui\form\widgets\ActiveForm;
     <span class="star" data-value="5">&#9733;</span>
 </div>
 
+<?= $form->field($post, 'starRating')->hiddenInput(['id' => 'starRatingInput'])->label(false) ?>
+
 <?= $form->field($post, 'message')->widget(RichTextField::class, [
     'id' => 'contentForm_message',
     'form' => $form,
@@ -53,12 +55,12 @@ use humhub\modules\ui\form\widgets\ActiveForm;
             const value = parseInt(this.getAttribute('data-value'));
             const storedRating = localStorage.getItem('starRating');
 
-            // If the clicked star is already selected, reset the rating to 0 (silver)
-            if (storedRating && parseInt(storedRating) === value) {
-                localStorage.removeItem('starRating');
-            } else {
-                localStorage.setItem('starRating', value);
-            }
+            // Toggle the rating between 0 and the clicked value
+            const newRating = storedRating && parseInt(storedRating) === value ? 0 : value;
+            document.getElementById('starRatingInput').value = newRating;
+
+            // Store the new rating in local storage
+            localStorage.setItem('starRating', newRating);
 
             // Update the display for all stars
             applyStoredRating();
@@ -77,11 +79,7 @@ use humhub\modules\ui\form\widgets\ActiveForm;
                 const shouldBeSelected = i < rating;
 
                 // Toggle the selected class based on the shouldBeSelected condition
-                if (shouldBeSelected) {
-                    star.classList.add('selected');
-                } else {
-                    star.classList.remove('selected');
-                }
+                star.classList.toggle('selected', shouldBeSelected);
             });
         }
 

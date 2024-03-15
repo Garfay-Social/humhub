@@ -89,9 +89,7 @@ class Post extends ContentActiveRecord implements Searchable
             $this->url = 1;
         }
 
-        if ($this->starRating !== null) {
-            $this->setAttribute('star_rating', $this->starRating);
-        }
+        $this->setAttribute('starRating', $this->starRating);
 
         return parent::beforeSave($insert);
     }
