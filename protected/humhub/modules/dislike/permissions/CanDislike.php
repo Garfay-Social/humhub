@@ -12,7 +12,7 @@ use humhub\modules\space\models\Space;
 use humhub\modules\user\models\User;
 
 /**
- * CanLike Permission
+ * CanDislike Permission
  */
 class CanDislike extends \humhub\libs\BasePermission
 {
