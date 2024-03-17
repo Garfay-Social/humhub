@@ -95,7 +95,7 @@ class Events extends \yii\base\BaseObject
         /** @var Module $module */
         $module = Yii::$app->getModule('dislike');
 
-        if ($module->canLike($event->sender->object)) {
+        if ($module->canDislike($event->sender->object)) {
             $event->sender->addWidget(widgets\DislikeLink::class, ['object' => $event->sender->object], ['sortOrder' => 20]);
         }
     }
