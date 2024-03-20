@@ -1,0 +1,9 @@
+{
+    "id": "dislike",
+    "name": "Dislike",
+    "description": "Dislike Core",
+    "keywords": [
+        "core"
+    ],
+    "version": "1.0"
+}
