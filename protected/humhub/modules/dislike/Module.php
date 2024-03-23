@@ -9,7 +9,7 @@
 namespace humhub\modules\dislike;
 
 use Yii;
-use humhub\modules\dislike\models\Disike;
+use humhub\modules\dislike\models\Dislike;
 use humhub\modules\space\models\Space;
 use humhub\modules\content\components\ContentActiveRecord;
 
