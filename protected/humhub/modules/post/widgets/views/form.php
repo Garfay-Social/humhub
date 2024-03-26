@@ -57,7 +57,6 @@ use humhub\modules\ui\form\widgets\ActiveForm;
 
             // Toggle the rating between 0 and the clicked value
             const newRating = storedRating && parseInt(storedRating) === value ? 0 : value;
-            document.getElementById('starRatingInput').value = newRating;
 
             // Store the new rating in local storage
             localStorage.setItem('starRating', newRating);
@@ -68,6 +67,7 @@ use humhub\modules\ui\form\widgets\ActiveForm;
 
         function applyStoredRating() {
             const storedRating = localStorage.getItem('starRating');
+            document.getElementById('starRatingInput').value = storedRating;
             let stars = document.querySelectorAll('.star');
 
             // Convert storedRating to a number, or default to 0 if null or invalid
