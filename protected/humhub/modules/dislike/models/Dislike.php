@@ -104,8 +104,6 @@ class Dislike extends ContentAddonActiveRecord
             }
         }
 
-        $this->automaticContentFollowing = Yii::$app->getModule('dislike')->autoFollowDislikedContent;
-
         return parent::afterSave($insert, $changedAttributes);
     }
 
