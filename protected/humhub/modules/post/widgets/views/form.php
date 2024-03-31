@@ -65,9 +65,14 @@ use humhub\modules\ui\form\widgets\ActiveForm;
             applyStoredRating();
         }
 
-        function applyStoredRating() {
+        function applyStoredRating(setStarRatingInput = true) {
             const storedRating = localStorage.getItem('starRating');
-            document.getElementById('starRatingInput').value = storedRating;
+            
+            // Stars are reset to 0 when submit button is clicked
+            // This if clause prevents the rating from being sent to DB as 0
+            if (setStarRatingInput){
+                document.getElementById('starRatingInput').value = storedRating;
+            }
 
             let stars = document.querySelectorAll('.star');
 
@@ -99,5 +104,11 @@ use humhub\modules\ui\form\widgets\ActiveForm;
 
         // Additionally, listening to 'pageshow' can help ensure ratings are applied when navigating back to the page from history
         window.addEventListener('pageshow', initializeStarRating);
+
+        // Listen for submit button click, reset stars to 0
+        document.getElementById('post_submit_button').addEventListener('click', function(event) {
+            localStorage.setItem('starRating', 0);
+            applyStoredRating(false);
+        });
     })();
 </script>

@@ -94,7 +94,6 @@ use yii\bootstrap\ActiveForm;
 
             // Toggle the rating between 0 and the clicked value
             const newRating = storedRating && parseInt(storedRating) === value ? 0 : value;
-            document.getElementById('starRatingInput').value = newRating;
 
             // Store the new rating in local storage
             localStorage.setItem('starRating', newRating);
@@ -103,8 +102,15 @@ use yii\bootstrap\ActiveForm;
             applyStoredRating();
         }
 
-        function applyStoredRating() {
+        function applyStoredRating(setStarRatingInput = true) {
             const storedRating = localStorage.getItem('starRating');
+            
+            // Stars are reset to 0 when submit button is clicked
+            // This if clause prevents the rating from being sent to DB as 0
+            if (setStarRatingInput){
+                document.getElementById('starRatingInput').value = storedRating;
+            }
+
             let stars = document.querySelectorAll('.star');
 
             // Convert storedRating to a number, or default to 0 if null or invalid
@@ -135,5 +141,14 @@ use yii\bootstrap\ActiveForm;
 
         // Additionally, listening to 'pageshow' can help ensure ratings are applied when navigating back to the page from history
         window.addEventListener('pageshow', initializeStarRating);
-    })();
+
+        // Listen for submit button click, reset stars to 0
+        const submitButton = document.querySelector('.btn-comment-submit');
+        if (submitButton) { 
+            submitButton.addEventListener('click', function(event) {
+                localStorage.setItem('starRating', 0);
+                applyStoredRating(false);
+            });
+        }
+    })(); 
 </script>
