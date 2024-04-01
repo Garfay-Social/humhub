@@ -39,7 +39,7 @@ class Module extends \humhub\components\Module
     /**
      * @var int number of seconds that the user can remain in logged-in status if remember me is clicked on login
      */
-    public $loginRememberMeDuration = 2592000;
+    public $loginRememberMeDuration = 604800;
 
     /**
      * @var string redirect url after logout (if not set, home url will be used)
