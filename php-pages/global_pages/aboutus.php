@@ -80,8 +80,8 @@ if(isset($_POST['submit'])) {
 		$mail->isSMTP();
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;  
-		$mail->Username = 'vincario098@gmail.com';  //SMTP username, change to garfay email
-		$mail->Password = 'zqmgssnfhaodeecg';  // SMPTP password, change to garfay password
+		$mail->Username = 'garfayinc@gmail.com';  //SMTP username, change to garfay email
+		$mail->Password = 'gnyykmfzytzzzqhf';  // SMPTP password, change to garfay password
 		$mail->Port = 587;  // Port
 
 
@@ -96,7 +96,7 @@ if(isset($_POST['submit'])) {
 		$mail->setFrom($email, $name);
 
 		// address sent to, change this to garfay on server
-		$mail->addAddress('vinsondinh123@gmail.com', 'Recipient Name');
+		$mail->addAddress('garfayinc@gmail.com', 'Recipient Name');
 
 		// Send 
 		$mail->send();
