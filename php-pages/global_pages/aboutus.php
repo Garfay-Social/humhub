@@ -100,13 +100,14 @@ if(isset($_POST['submit'])) {
 
 		// Send 
 		$mail->send();
-
 		
 		$mail->clearAllRecipients();
 
 		//send to sender
 		$mail->addAddress($email, 'Recipient Name');
 		$mail->send();
+
+        echo "<div class='notification' id='notification'>Email sent successfully</div>";
 		
 		
 	} catch (Exception $e) {
