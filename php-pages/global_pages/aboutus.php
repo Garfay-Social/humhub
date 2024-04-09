@@ -81,7 +81,7 @@ if(isset($_POST['submit'])) {
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;  
 		$mail->Username = 'garfayinc@gmail.com';  //SMTP username, change to garfay email
-		$mail->Password = 'gnyykmfzytzzzqhf';  // SMPTP password, change to garfay password
+		$mail->Password = 'puwblhqpeqauwcnz';  // SMPTP password, change to garfay password
 		$mail->Port = 587;  // Port
 
 
