@@ -8,17 +8,18 @@ humhub\modules\dislike\assets\DislikeAsset::register($this);
 <span class="dislikeLinkContainer" id="dislikeLinkContainer_<?= $id ?>">
 
     <?php if (Yii::$app->user->isGuest): ?>
-        <?= Html::a('<i class="fa fa-thumbs-down"></i>', Yii::$app->user->loginUrl, ['data-target' => '#globalModal']); ?>
+
+        <?= Html::a(Yii::t('DislikeModule.base', 'Dislike'), Yii::$app->user->loginUrl, ['data-target' => '#globalModal']); ?>
     <?php else: ?>
-        <a href="#" data-action-click="dislike.toggleDislike" data-action-url="<?= $dislikeUrl ?>" class="dislike dislikeAnchor<?= !$canDislike ? ' disabled' : '' ?>" style="<?= (!$currentUserDisliked) ? '' : 'display:none'?>">
-            <i class="fa fa-thumbs-down"></i>
+        <a href="#" data-action-click="dislike.toggleDislike" data-action-url="<?= $dislikeUrl ?>" class="dislike dislikeAnchor<?= !$canDislike ? ' disabled' : '' ?><?= ($currentUserDisliked) ? ' active' : '' ?>">
+            <?= Yii::t('DislikeModule.base', 'Dislike') ?>
         </a>
-        <a href="#" data-action-click="dislike.toggleDislike" data-action-url="<?= $undislikeUrl ?>" class="undislike dislikeAnchor<?= !$canDislike ? ' disabled' : '' ?>" style="<?= ($currentUserDisliked) ? '' : 'display:none'?>">
-            <i class="fa fa-thumbs-up"></i>
+        <a href="#" data-action-click="dislike.toggleDislike" data-action-url="<?= $undislikeUrl ?>" class="undislike dislikeAnchor<?= !$canDislike ? ' disabled' : '' ?><?= (!$currentUserDisliked) ? ' active' : '' ?>">
+            <?= Yii::t('DislikeModule.base', 'Undislike') ?>
         </a>
     <?php endif; ?>
 
-    <!-- Create link to show all users, who disliked this -->
+    <!-- Create link to show all users, who liked this -->
     <a href="<?= $userListUrl; ?>" data-target="#globalModal">
         <?php if (count($dislikes)) : ?>
             <span class="dislikeCount tt" data-placement="top" data-toggle="tooltip" title="<?= $title ?>">(<?= count($dislikes) ?>)</span>
