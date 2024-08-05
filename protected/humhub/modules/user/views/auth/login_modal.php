@@ -36,7 +36,7 @@ use humhub\modules\user\widgets\AuthChoice;
                                 data-toggle="tab"><?= Yii::t('SpaceModule.base', 'New user?'); ?></a>
                         </li>
                         <li class="<?= (isset($_POST['Invite'])) ? "active" : ""; ?> tab-register"><a
-                                href="#register"
+                                href="#business_register"
                                 data-toggle="tab"><?= Yii::t('SpaceModule.base', 'New business?'); ?></a>
                         </li>
                     </ul>
@@ -130,6 +130,37 @@ use humhub\modules\user\widgets\AuthChoice;
 
                     </div>
                 <?php endif; ?>
+
+                <?php if ($canRegister) : ?>
+                    <div class="tab-pane <?= (isset($_POST['Invite'])) ? "active" : ""; ?>"
+                         id="business_register">
+
+                        <?php if (AuthChoice::hasClients()): ?>
+                            <?= AuthChoice::widget() ?>
+                        <?php else: ?>
+                            <p><?= Yii::t('UserModule.auth', "Don't have a business account? Join the network by entering your e-mail address."); ?></p>
+                        <?php endif; ?>
+
+                        <?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
+
+                        <?= $form->field($invite, 'email')->input('email', ['id' => 'register-email', 'placeholder' => Yii::t('UserModule.auth', 'email')]); ?>
+                        <?php if ($invite->showCaptureInRegisterForm()) : ?>
+                            <div><?= Yii::t('UserModule.auth', 'Please enter the letters from the image.'); ?></div>
+                            <?= $form->field($invite, 'captcha')->widget(Captcha::class, [
+                            'captchaAction' => '/user/auth/captcha',
+                        ])->label(false); ?>
+                        <?php endif; ?>
+                        <hr>
+
+                        <a href="#" class="btn btn-primary" data-ui-loader data-action-click="ui.modal.submit" data-action-url="<?= Url::to(['/user/auth/login']) ?>">
+                            <?= Yii::t('UserModule.auth', 'Register') ?>
+                        </a>
+
+                        <?php ActiveForm::end(); ?>
+
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
 
