@@ -35,6 +35,10 @@ use humhub\modules\user\widgets\AuthChoice;
                                 href="#register"
                                 data-toggle="tab"><?= Yii::t('SpaceModule.base', 'New user?'); ?></a>
                         </li>
+                        <li class="<?= (isset($_POST['Invite'])) ? "active" : ""; ?> tab-register"><a
+                                href="#register"
+                                data-toggle="tab"><?= Yii::t('SpaceModule.base', 'New business?'); ?></a>
+                        </li>
                     </ul>
                 </div>
                 <br/>
